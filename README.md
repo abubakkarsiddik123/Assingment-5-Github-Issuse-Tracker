@@ -29,9 +29,9 @@ Answer: 1.var
 
 (b).Hoisting: Hoisted but not initialized (same as let)
 
-(c).Reassignable: ❌ No, cannot reassign the variable.
+(c).Reassignable:  No, cannot reassign the variable.
 
-(d).Redeclarable: ❌ No, cannot redeclare in the same scope.
+(d).Redeclarable:  No, cannot redeclare in the same scope.
 
 (e).Important: For objects/arrays, the reference cannot change, but the contents can be modified.
 
