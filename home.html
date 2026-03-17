@@ -43,6 +43,7 @@
             <div>
               <label class="input validator join-item">
                 <input
+                id="input-search"
                   class="w-32 sm:w-64"
                   type="text"
                   placeholder="Search issues..."
@@ -50,15 +51,15 @@
                 />
               </label>
             </div>
-            <button class="btn btn-primary">+ New Issue</button>
+            <button id="btn-search" class="btn btn-primary">+ New Issue</button>
           </div>
         </div>
       </nav>
     </header>
 
     <main class="w-9/12 mx-auto">
-      <section class="bg-white mt-14 shadow p-6">
-        <div class="space-x-2">
+      <section class="bg-white mt-14 shadow p-6 rounded-lg">
+        <div class="flex flex-col sm:flex-row gap-2">
           <button
             onclick="switchBtn('All')"
             id="btn-All"
@@ -83,38 +84,55 @@
         </div>
       </section>
 
-      <section class=" mt-4 shadow ">
+      <section id="spinner" class="flex justify-center items-center py-10 hidden">
+        <span class="loading loading-spinner loading-lg"></span>
+      </section>
 
-        <div class=" bg-white flex justify-between items-center p-6">
+      <section id="issue-container" class="mt-4 shadow">
+        <div
+          class="bg-white flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 p-6 rounded-lg"
+        >
           <div class="flex items-center gap-2">
             <img src="./assets/Aperture.png" alt="" />
             <div class="">
-              <h2 id="count-value" class="text-xl font-semibold text-[#1F2937]">50 Issues</h2>
+              <h2 id="count-value" class="text-xl font-semibold text-[#1F2937]">
+                50 Issues
+              </h2>
               <p class="text-[#64748B]">Track and manage your project issues</p>
             </div>
           </div>
           <div class="flex items-center gap-3">
             <div class="flex items-center gap-2">
-              <div class="badge badge-success badge-xs"></div>
+              <div class="rounded-full bg-green-500 h-2 w-2"></div>
               <p class="font-medium text-[#1F2937]">Open</p>
             </div>
             <div class="flex items-center gap-2">
-              <div class="badge badge-secondary badge-xs"></div>
+              <div class="rounded-full bg-purple-500 h-2 w-2"></div>
               <p class="font-medium text-[#1F2937]">Closed</p>
             </div>
           </div>
         </div>
 
         <!-- card section -->
-         <div id="card-container" class="grid md:grid-cols-4 gap-4 mt-7  ">
-         
-         </div>
+        <div id="card-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-7"></div>
 
-
-         <!-- <img src="./assets/bug.png" alt=""> -->
-
+        <!-- <img src="./assets/bug.png" alt=""> -->
       </section>
     </main>
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="cards_modal.showModal()">open modal</button> -->
+    <dialog id="cards_modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <div id="details-container" class="space-y-6"></div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn btn-primary">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
     <script src="./script/script.js"></script>
   </body>
 </html>
