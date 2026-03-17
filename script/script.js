@@ -200,4 +200,21 @@ function displayIssuse(issues) {
 loadIssues();
 
 
+document.getElementById("btn-search").addEventListener("click", () => {
+  const input = document.getElementById("input-search");
+  const inputValue = input.value.trim().toLowerCase();
+  console.log(inputValue);
 
+  fetch(
+    `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputValue}`,
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      allIssues = data.data;
+      // console.log(allIssues);
+      const filterIssue = allIssues.filter((issue) =>
+        issue.title.toLowerCase().includes(inputValue),
+      );
+      displayIssuse(filterIssue);
+    });
+});
